@@ -186,7 +186,7 @@ h2.mdl-card__title-text {
 }
 
 #patients {
-  display: inline;
+  display: inline-block;
   margin-right: 3%;
 }
 
