@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Login </title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<!--load font-->
+	<link href='https://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<!--load my style sheet-->
+	<link rel='stylesheet' href='/stylesheets/style-register.css'/>
+
+	<!-- material -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-cyan.min.css">
+	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
+  </head>
+  <body>
+	<nav id="nav">
+		<div class="logo">
+			WhatSupDoc?
+		</div>
+		<!-- Right aligned menu below button -->
+		<div class="menu-button">
+			<button id="demo-menu-lower-right"
+			        class="mdl-button mdl-js-button mdl-button--icon">
+			  <i class="material-icons">more_vert</i>
+			</button>
+			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+			    for="demo-menu-lower-right">
+				<li class="mdl-menu__item"><a class="login" href="/register">Register</a></li>
+			</ul>
+		</div>
+	</nav>
+  	<div id = "login-container">
+	  	<div id = "form-container">
+	  		<h3 class="title"> Login </h3>
+	  		<form method="post" action="/login">
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				  <input class="mdl-textfield__input" type="text" id="email" name="username">
+				  <label class="mdl-textfield__label" for="email">Email</label>
+				</div>
+				<div></div>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				  <input class="mdl-textfield__input" type="password" id="password" name="password">
+				  <label class="mdl-textfield__label" for="password">Password</label>
+				</div>
+				<div></div>
+				{{#if unsuccesful}}
+					<div class = "error-message"> <p> Incorrect email address or password. Please try again or create a new account. <p> </div>
+				{{/if}}
+				<input class="button" type="submit" value="Login"></input>
+			</form>
+  		</div>
+  	</div>
+  </body>
+</html>

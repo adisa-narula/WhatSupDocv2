@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body{
+   background-color: #fafafa;
+   font-size: 16px;
+   font-family: 'Open Sans', sans-serif;
+}
+
+.title{
+   color: #3F51B5;
+   text-align: center;
+   font-family: 'Raleway', sans-serif;
+}
+
+.logo{
+   text-align: left;
+   color: #E8EAF6;
+   padding-top: 0.5%;
+   width: 20%;
+   float: left;
+   font-family: 'Raleway', sans-serif;
+   margin-left: 1%;
+}
+
+#inner-container{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.description{
+	padding: 0.5em;
+	font-size: 1.2em;
+	color: #696969;
+}
+
+.disclaimer{
+	font-size: 1.2em;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.button {
+    margin: 2em;
+    width: 130px;
+    height: 35px;
+    font-size: 11px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: 1px #6666ff solid;
+    border-radius: 45px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+
+ .button:hover {
+    background-color: #3F51B5;
+    box-shadow: 0px 10px 14px rgba(80, 80, 80, 0.4);
+    color: #fff;
+    border: 1px #eeeeee solid;
+  }
+
+#nav {
+	background-color: #000066;
+	text-align: left;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	cursor: default;
+}
+
+	#nav li {
+		display: inline-block;
+		margin-left: 0.80em;
+		margin-right: 0.80em;
+	}
+
+	#nav a {
+		position: relative;
+		display: block;
+		/*color: #ffffff;*/
+		text-decoration: none;
+		outline: 0;
+	}
+
+		#nav a:hover {
+			color: #fff !important;
+		}
+
+  	    .halfhover:before{
+  	    	content:"";
+  	    	backgroud:#6666ff;
+  	    	transition-duration: 0.3s;
+  	    	position:absolute;
+  	    	bottom:-5px;
+  	    	width:0;
+  	    	height:
+  	    	3px;
+  	    }
+
+  		.halfhover:hover:before{
+  			background:#6666ff;
+  			width:100%;
+  	}
+
+#nav {
+	background-color: #5C6BC0;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+  color: #ffffff;
+	cursor: default;
+}
+
+.menu-button{
+  display: float;
+  margin-left: 97%;
+}
+
+.login {
+	font-family: 'Open Sans', sans-serif;
+	text-decoration:none;
+	color: black;
+}
+
+#main-page {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#title-welcome {
+  padding: 2%;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto;
+  text-align: center;
+  width: 20%;
+}
+
+#title-welcome h4 {
+  margin-bottom: 1%;
+}
+
+#title-welcome p {
+  color: #707B7C;
+  font-size: 1rem;
+}
+
+hr.styleline {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
+
+.demo-card-square.mdl-card {
+  width: 200px;
+  height: 200px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  /*background:url('/images/man.png') bottom right 2% no-repeat #5C6BC0;*/
+}
+
+.profile-card {
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 2%;
+  display: inline-block;
+}
+
+h2.mdl-card__title-text {
+  font-size: 1.2rem;
+}
+
+#patients {
+  display: inline;
+  margin-right: 3%;
+}
+
+#add-button {
+  background-color: #F2F3F4;
+  width: 40px;
+  height:40px;
+  min-width: 40px;
+  color:black;
+}
+
+#add-button i {
+  color:black;
+}
