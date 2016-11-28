@@ -13,16 +13,6 @@ body{
    font-family: 'Raleway', sans-serif;
 }
 
-.logo{
-   text-align: left;
-   color: #E8EAF6;
-   padding-top: 0.5%;
-   width: 20%;
-   float: left;
-   font-family: 'Raleway', sans-serif;
-   margin-left: 1%;
-}
-
 #inner-container{
 	display: table-cell;
 	vertical-align: middle;
@@ -80,67 +70,6 @@ body{
     color: #fff;
     border: 1px #eeeeee solid;
   }
-
-#nav {
-	background-color: #000066;
-	text-align: left;
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	z-index: 1;
-	cursor: default;
-}
-
-	#nav li {
-		display: inline-block;
-		margin-left: 0.80em;
-		margin-right: 0.80em;
-	}
-
-	#nav a {
-		position: relative;
-		display: block;
-		/*color: #ffffff;*/
-		text-decoration: none;
-		outline: 0;
-	}
-
-		#nav a:hover {
-			color: #fff !important;
-		}
-
-  	    .halfhover:before{
-  	    	content:"";
-  	    	backgroud:#6666ff;
-  	    	transition-duration: 0.3s;
-  	    	position:absolute;
-  	    	bottom:-5px;
-  	    	width:0;
-  	    	height:
-  	    	3px;
-  	    }
-
-  		.halfhover:hover:before{
-  			background:#6666ff;
-  			width:100%;
-  	}
-
-#nav {
-	background-color: #5C6BC0;
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	z-index: 1;
-  color: #ffffff;
-	cursor: default;
-}
-
-.menu-button{
-  display: float;
-  margin-left: 97%;
-}
 
 .login {
 	font-family: 'Open Sans', sans-serif;

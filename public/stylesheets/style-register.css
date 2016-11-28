@@ -14,15 +14,6 @@ body{
   font-family: 'Raleway', sans-serif;
 }
 
-.logo{
-   color: #E8EAF6;
-   padding-top: 0.5%;
-   width: 20%;
-   float: left;
-   font-family: 'Raleway', sans-serif;
-   margin-left: 1%;
-}
-
 .error-message{
    color: #3949AB;
 	 margin-left: 3%;
@@ -86,21 +77,6 @@ body{
     color: #fff;
     border: 1px #eeeeee solid;
   }
-#nav {
-	background-color: #5C6BC0;
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	z-index: 1;
-  color: #ffffff;
-	cursor: default;
-}
-
-.menu-button{
-  display: float;
-  margin-left: 97%;
-}
 
 .login {
 	font-family: 'Open Sans', sans-serif;

@@ -17,27 +17,7 @@
 	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   </head>
   <body>
-  	<nav id="nav">
-		<div class="logo">
-      WhatSupDoc?
-		</div>
-		<!-- Right aligned menu below button -->
-		<div class="menu-button">
-			<button id="demo-menu-lower-right"
-			        class="mdl-button mdl-js-button mdl-button--icon">
-			  <i class="material-icons">more_vert</i>
-			</button>
-			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-			    for="demo-menu-lower-right">
-        {{#if user}}
-          <li class="mdl-menu__item">{{user}}</li>
-          <li class="mdl-menu__item"><a class="login" href="/logout">Logout</a></li>
-        {{else}}
-          <li class="mdl-menu__item"><a class="login" href="/login">Login</a></li>
-        {{/if}}
-			</ul>
-		</div>
-	</nav>
+    {{> navbar }}
   	<div id = "main-container">
 	  	<div id = "inner-container">
 	  		<h1 class="title"> WhatsUpDoc? </h1>
@@ -47,6 +27,7 @@
 		  	<div class="description">
 		  		Doctors, register with us today and stay connected with your patients after their visits!
 		  	</div>
+      <a href="/login"> <button class="button">login</button> </a>
 			<a href="/register"> <button class="button">register</button> </a>
 			<div class="disclaimer">
 		  		If you are not a doctor but you are interested in using our services, ask your doctor to register with us!

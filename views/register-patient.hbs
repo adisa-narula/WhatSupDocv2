@@ -11,6 +11,7 @@
 
 	<!--load my style sheet-->
 	<link rel='stylesheet' href='/stylesheets/register-patient.css'/>
+  <link rel='stylesheet' href='/stylesheets/style.css'/>
 
 	<!-- material -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -18,27 +19,7 @@
 	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   </head>
   <body>
-	<nav id="nav">
-		<div class="logo">
-			WhatSupDoc?
-		</div>
-		<!-- Right aligned menu below button -->
-		<div class="menu-button">
-			<button id="demo-menu-lower-right"
-			        class="mdl-button mdl-js-button mdl-button--icon">
-			  <i class="material-icons">more_vert</i>
-			</button>
-			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-			    for="demo-menu-lower-right">
-				{{#if user.username}}
-        <li class="mdl-menu__item">{{user.username}}</li>
-				<li class="mdl-menu__item"><a class="login" href="/logout">Logout</a></li>
-				{{else}}
-				<li class="mdl-menu__item"><a class="login" href="/login">Login</a></li>
-        {{/if}}
-			</ul>
-		</div>
-	 </nav>
+  {{> navbar }}
    <div id = "main-page">
      <div id = "title-welcome">
        <h4>New Patient</h4>

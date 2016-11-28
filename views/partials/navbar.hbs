@@ -1,0 +1,25 @@
+<nav id="nav">
+  <a href="/">
+    <div class="logo">
+      WhatSupDoc?
+    </div>
+  </a>
+  <!-- Right aligned menu below button -->
+  {{#unless menuButton}}
+  <div class="menu-button">
+    <button id="demo-menu-lower-right"
+            class="mdl-button mdl-js-button mdl-button--icon">
+      <i class="material-icons">more_vert</i>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+        for="demo-menu-lower-right">
+      {{#if user.username}}
+      <li class="mdl-menu__item">{{user.username}}</li>
+      <li class="mdl-menu__item"><a class="login" href="/logout">Logout</a></li>
+      {{else}}
+      <li class="mdl-menu__item"><a class="login" href="/login">Login</a></li>
+      {{/if}}
+    </ul>
+  </div>
+  {{/unless}}
+ </nav>

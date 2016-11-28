@@ -10,6 +10,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	<!--load my style sheet-->
 	<link rel='stylesheet' href='/stylesheets/style-register.css'/>
+  <link rel='stylesheet' href='/stylesheets/style.css'/>
 
 	<!-- material -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -18,22 +19,7 @@
 
   </head>
   <body>
-	<nav id="nav">
-		<div class="logo">
-			WhatSupDoc?
-		</div>
-		<!-- Right aligned menu below button -->
-		<div class="menu-button">
-			<button id="demo-menu-lower-right"
-			        class="mdl-button mdl-js-button mdl-button--icon">
-			  <i class="material-icons">more_vert</i>
-			</button>
-			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-			    for="demo-menu-lower-right">
-				<li class="mdl-menu__item"><a class="login" href="/register">Register</a></li>
-			</ul>
-		</div>
-	</nav>
+    {{> navbar }}
   	<div id = "login-container">
 	  	<div id = "form-container">
 	  		<h3 class="title"> Login </h3>

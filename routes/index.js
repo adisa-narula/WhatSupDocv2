@@ -9,8 +9,12 @@ var express = require('express'),
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  console.log('username: ' + req.session.username);
-  res.render('index', {user: req.session.username});
+  var user = req.session.username;
+  if(user){
+    res.redirect('/dashboard')
+  }else{
+    res.render('index', {user: req.session.username, menuButton: true});
+  }
 });
 
 router.get('/login', function(req, res) {
