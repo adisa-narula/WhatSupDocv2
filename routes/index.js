@@ -160,7 +160,14 @@ router.get('/patient/:slug', function(req, res) {
 });
 
 router.get('/patient/:slug/create-survey', function(req, res){
-  res.render('create-survey');
+  var defaultQuestion = "Do you feel fully recovered? (Scale 1-10)";
+  Patient.findOne({slug: req.params.slug}, function(err, patient, count) {
+    res.render('create-survey', {defaultQuestion: defaultQuestion, patient:patient});
+
+  });
+});
+router.post('/patient/:slug/create-survey', function(req, res){
+  res.send(req.body);
 });
 
 router.get('/logout', function(req,res) {
