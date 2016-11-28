@@ -16,12 +16,13 @@ hr.styleline {
 }
 
 .question-box{
+  font-family: 'Roboto', sans-serif;
   border-style: solid;
   border-width: 30px 20px 30px 20px;
   border-color: #1abc9c;
-  border-radius: 3px;
+  border-radius: 5px;
   height: 200px;
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 5px 5px 2.5px #888888;
   position: relative;
 }
 
@@ -31,11 +32,13 @@ hr.styleline {
   margin-right: auto;
 }
 .question-holder-row{
+  font-family: 'Roboto', sans-serif;
   height: 66px;
   font-size: 20px;
   box-shadow: 1px 1px 1px #888888;
   padding-left: 15px;
   padding-top: 30px;
+  border-radius: 2px;
 }
 
 .question-label{
@@ -62,11 +65,13 @@ hr.styleline {
 }
 
 .survey-button{
+  font-family: 'Roboto', sans-serif;
   margin-left: 10px;
   padding:10px;
   box-shadow: none;
   font-size: 18px;
-  border-radius: 2px;
+  border-radius:5px;
+  border: none;
 }
 #add-question-button{
   background-color:#5C6BC0;
@@ -79,7 +84,7 @@ hr.styleline {
 #create-survey-button{
   margin-top: 30px;
   float:right;
-  width: 190px;
+  width: 210px;
   font-size: 22px;
   text-align: right;
   color: white;
