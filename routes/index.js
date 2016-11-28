@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
   if(user){
     res.redirect('/dashboard')
   }else{
-    res.render('index', {user: req.session.username, menuButton: true});
+    res.render('index', {user: req.session.username, noMenuButton: true});
   }
 });
 
@@ -157,6 +157,10 @@ router.get('/patient/:slug', function(req, res) {
   Patient.findOne({slug: req.params.slug}, function(err, patient, count) {
     res.render('patient', {patient:patient});
   });
+});
+
+router.get('/patient/:slug/create-survey', function(req, res){
+  res.render('create-survey');
 });
 
 router.get('/logout', function(req,res) {
