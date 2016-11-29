@@ -11,7 +11,7 @@ var Medication = new mongoose.Schema({
 });
 
 var Question = new mongoose.Schema({
-  surveyId: Number,
+  surveyId: String,
   question: String,
   answer: String,
 });
@@ -23,17 +23,17 @@ var Survey = new mongoose.Schema({
 });
 
 var Patient = new mongoose.Schema ({
-    email: {type : String, unique:true, dropDups:true},
-    firstName: String,
-    lastName: String,
-    medications: [Medication],
-    surveys: [Survey],
-    condition: String, //what the patient is being treated for
-    age: Number,
-    weight: Number,
-    height: Number,
-    gender: String, // dropdown
-    slug:String,
+  email: {type : String, unique:true, dropDups:true},
+  firstName: String,
+  lastName: String,
+  medications: [Medication],
+  surveys: [Survey],
+  condition: String, //what the patient is being treated for
+  age: Number,
+  weight: Number,
+  height: Number,
+  gender: String, // dropdown
+  slug:String,
 });
 
 var Doctor = new mongoose.Schema({

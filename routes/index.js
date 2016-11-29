@@ -6,6 +6,8 @@ var express = require('express'),
     Doctor = mongoose.model('Doctor'),
     Patient = mongoose.model('Patient'),
     Medication = mongoose.model('Medication');
+    Question = mongoose.model('Question');
+    Survey = mongoose.model('Survey');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -167,25 +169,46 @@ router.get('/patient/:slug/create-survey', function(req, res){
   });
 });
 router.post('/patient/:slug/create-survey', function(req, res){
-  // var qs = [];
-  // req.body.myInputs.forEach(function(current) {
-  //     qs.push(current);
-  // });
-  // // TODO make sure it's a unique ID
-  // var rand = function() {
-  //     return Math.random().toString(36).substr(2); // remove `0.`
-  // };
-  // var token = rand() + rand();
-  // console.log(token);
-  // var survey = new Survey({
-  //     id:token,
-  //     questions:qs
-  // }).save(function(err, obj, count) {
-  //     if (err) console.log(err);
-  //     // TODO make sure
-  //     res.redirect('survey/'+token);
-  // });
-  res.send(req.body);
+  var rand = function(){
+    return Math.random().toString(36).substr(2);
+  };
+  var token = rand()+rand();
+  var defaultQuestion = "Do you feel fully recovered? (Scale 1-10)";
+  var questions = [];
+  questions.push(defaultQuestion);
+  for(var i = 0; i < req.body.myInputs.length; i++){
+    questions.push(req.body.myInputs[i]);
+  }
+
+  var array_of_question_objects = []
+  for(var i = 0; i < questions.length; i++){
+    question = {}
+    question.surveyId = token;
+    question.question = questions[i];
+    array_of_question_objects.push(question);
+  }
+  Question.create(array_of_question_objects, function (err) {
+    if (err){
+      console.log(err);
+      res.send(err);
+    }else{
+      var questions = Question.find({surveyId: token}, function(err, allQuestions){
+        var survey = new Survey({
+          id: token,
+          questions: allQuestions,
+        }).save(function(err, obj, count){
+          if(err) {
+            res.send(err);
+          } else{
+            console.log(obj);
+            res.send('successfully saved');
+          };
+
+        });
+      });
+
+    }
+  });
 
 });
 
