@@ -167,7 +167,26 @@ router.get('/patient/:slug/create-survey', function(req, res){
   });
 });
 router.post('/patient/:slug/create-survey', function(req, res){
+  // var qs = [];
+  // req.body.myInputs.forEach(function(current) {
+  //     qs.push(current);
+  // });
+  // // TODO make sure it's a unique ID
+  // var rand = function() {
+  //     return Math.random().toString(36).substr(2); // remove `0.`
+  // };
+  // var token = rand() + rand();
+  // console.log(token);
+  // var survey = new Survey({
+  //     id:token,
+  //     questions:qs
+  // }).save(function(err, obj, count) {
+  //     if (err) console.log(err);
+  //     // TODO make sure
+  //     res.redirect('survey/'+token);
+  // });
   res.send(req.body);
+
 });
 
 router.get('/logout', function(req,res) {

@@ -10,14 +10,16 @@ var Medication = new mongoose.Schema({
   frequency: String, // dropdown (day, week, ...)
 });
 
-var Survey = new mongoose.Schema({
-  id: String,
-  questions: [String],
+var Question = new mongoose.Schema({
+  surveyId: Number,
+  question: String,
+  answer: String,
 });
 
-var Response = new mongoose.Schema({
-  surveyId: Number,
-  responses: [String],
+var Survey = new mongoose.Schema({
+  id: String,
+  recoveryLevel: Number,
+  questions: [Question],
 });
 
 var Patient = new mongoose.Schema ({
@@ -25,7 +27,7 @@ var Patient = new mongoose.Schema ({
     firstName: String,
     lastName: String,
     medications: [Medication],
-    responses: [Response],
+    surveys: [Survey],
     condition: String, //what the patient is being treated for
     age: Number,
     weight: Number,
@@ -48,7 +50,7 @@ UserSchema.plugin(passportLocalMongoose);
 mongoose.model('User', UserSchema);
 mongoose.model('Medication', Medication);
 mongoose.model('Survey', Survey);
-mongoose.model('Response', Response);
+mongoose.model('Question', Question);
 mongoose.model('Patient', Patient);
 mongoose.model('Doctor', Doctor);
 mongoose.connect('mongodb://localhost/doctordb');
