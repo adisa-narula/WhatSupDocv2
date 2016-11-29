@@ -157,7 +157,7 @@ router.post('/register-patient', function(req, res) {
 router.get('/patient/:slug', function(req, res) {
   console.log('in : ', req.params.slug);
   Patient.findOne({slug: req.params.slug}, function(err, patient, count) {
-    res.render('patient', {patient:patient});
+    res.render('patient', {patient:patient, message:req.query.message});
   });
 });
 
@@ -196,12 +196,20 @@ router.post('/patient/:slug/create-survey', function(req, res){
         var survey = new Survey({
           id: token,
           questions: allQuestions,
+          answered: false,
         }).save(function(err, obj, count){
           if(err) {
             res.send(err);
           } else{
             console.log(obj);
-            res.send('successfully saved');
+            Patient.findOne({slug: req.params.slug}, function(err, patient, count) {
+              if(!err){
+                var redirectURL = '/patient/' + req.params.slug + "/" + "?message=created_survey";
+                res.redirect(redirectURL);
+              }else{
+                res.send('patient not found');
+              }
+            });
           };
 
         });

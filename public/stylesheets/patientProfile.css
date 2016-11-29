@@ -14,3 +14,29 @@
 .demo-card-square > .mdl-card__title {
   color: #fff;
 }
+
+.centerHolder{
+  margin-top: 50px;
+  width: 100%;
+}
+
+.flashSuccess{
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #1abc9c;
+  width: 440px;
+  padding: 20px;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  position: relative;
+}
+
+#x{
+  position:absolute;
+  top:0;
+  right:0;
+  cursor: pointer;
+}

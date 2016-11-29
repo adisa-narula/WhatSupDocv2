@@ -20,7 +20,15 @@
   </head>
   <body>
     {{> navbar }}
+    {{#if message}}
+      <div id="flashMessage" class="centerHolder">
+        <p class="flashSuccess">
+          The survey was created and sent to the patient
+          <img id="x" src="/images/x.svg"/>
+        </p>
+      </div>
 
+    {{/if}}
     <div class="profile-holder">
       <div class = "profile-card">
         <div class="demo-card-square mdl-card mdl-shadow--2dp">
@@ -47,4 +55,12 @@
     loop through surveys and display results
     -->
   </body>
+  <script>
+    var flashMessage = document.getElementById('flashMessage');
+    if(flashMessage){
+      document.getElementById('x').addEventListener('click', function(){
+        flashMessage.parentNode.removeChild(flashMessage);
+      })
+    }
+  </script>
 </html>

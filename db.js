@@ -20,6 +20,7 @@ var Survey = new mongoose.Schema({
   id: String,
   recoveryLevel: Number,
   questions: [Question],
+  answered: Boolean,
 });
 
 var Patient = new mongoose.Schema ({
