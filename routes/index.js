@@ -168,6 +168,7 @@ router.get('/patient/:slug/create-survey', function(req, res){
 
   });
 });
+
 router.post('/patient/:slug/create-survey', function(req, res){
   var rand = function(){
     return Math.random().toString(36).substr(2);
@@ -213,13 +214,17 @@ router.post('/patient/:slug/create-survey', function(req, res){
               }
             });
           };
-
         });
       });
-
     }
   });
+});
 
+router.get('/answerSurvey/:slug', function(req, res){
+  Survey.findOne({id: req.params.slug}, function(err, survey, count) {
+
+    res.render('answer-survey', {survey:survey});
+  });
 });
 
 router.get('/logout', function(req,res) {

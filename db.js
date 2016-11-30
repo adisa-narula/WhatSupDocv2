@@ -21,6 +21,7 @@ var Survey = new mongoose.Schema({
   recoveryLevel: Number,
   questions: [Question],
   answered: Boolean,
+  slug:String,
 });
 
 var Patient = new mongoose.Schema ({
@@ -47,6 +48,7 @@ var Doctor = new mongoose.Schema({
 });
 
 Patient.plugin(URLSlugs('lastName'));
+Survey.plugin(URLSlugs('id'));
 UserSchema.plugin(passportLocalMongoose);
 mongoose.model('User', UserSchema);
 mongoose.model('Medication', Medication);
