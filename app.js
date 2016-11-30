@@ -30,7 +30,7 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper("inc", function(value, options)
 {
-    return parseInt(value) + 1;
+    return parseInt(value) + 2;
 });
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

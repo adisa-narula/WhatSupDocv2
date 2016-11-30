@@ -5,6 +5,7 @@
   font-size: 26px;
 
 }
+
 hr.styleline {
   border: 0;
   height: 1px;
@@ -49,7 +50,14 @@ hr.styleline {
   width: 700px;
   height: 40px;
   margin-top: 10px;
+  margin-left: 15px;
+  font-size: 18px;
+}
 
+.question-number-input{
+  width: 60px;
+  height: 40px;
+  margin-top: 10px;
   margin-left: 15px;
   font-size: 18px;
 }

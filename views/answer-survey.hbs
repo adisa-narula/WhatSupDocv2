@@ -26,10 +26,14 @@
         <hr class="styleline" />
 
         <div class="question-box" id="question-form" data-numberQs="{{survey.questions.length}}">
+          <div class="question-holder-row">
+            <label>Question 1:</label> {{defaultQuestion}}
+            <input type="number" name="painLevel" class="question-number-input" min=1 max=10></input>
+          </div>
           {{#each survey.questions}}
             <div class="question-holder-row">
               <label>Question {{inc @index}}: {{this.question}}</label>
-              <input type="text" name="answeredQuestion-{{this.question}}" class="question-text-input"></input>
+              <input type="text" name="{{this._id}}" class="question-text-input"></input>
             </div>
           {{/each}}
         </div>
@@ -41,9 +45,7 @@
       var questionsBox = document.getElementById('question-form');
       var numberOfQuestions = (questionsBox.getAttribute('data-numberQs'));
       var height = questionsBox.offsetHeight;
-      console.log(numberOfQuestions)
-      var newHeight = (118) * numberOfQuestions;
-      console.log(newHeight);
+      var newHeight = (118) * numberOfQuestions + 118;
       questionsBox.style.height = newHeight + 'px';
     </script>
   </body>

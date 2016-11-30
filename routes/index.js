@@ -174,9 +174,7 @@ router.post('/patient/:slug/create-survey', function(req, res){
     return Math.random().toString(36).substr(2);
   };
   var token = rand()+rand();
-  var defaultQuestion = "Do you feel fully recovered? (Scale 1-10)";
   var questions = [];
-  questions.push(defaultQuestion);
   for(var i = 0; i < req.body.myInputs.length; i++){
     questions.push(req.body.myInputs[i]);
   }
@@ -222,9 +220,29 @@ router.post('/patient/:slug/create-survey', function(req, res){
 
 router.get('/answerSurvey/:slug', function(req, res){
   Survey.findOne({id: req.params.slug}, function(err, survey, count) {
-
-    res.render('answer-survey', {survey:survey});
+    var defaultQuestion = "Do you feel fully recovered? (Scale 1-10)";
+    res.render('answer-survey', {survey:survey, defaultQuestion:defaultQuestion});
   });
+});
+
+router.post('/answerSurvey/:slug', function(req, res){
+  var answeredQuestions = req.body;
+  var painLevel = req.body.painLevel;
+  console.log("the slug is below");
+  console.log(req.params.slug)
+  Survey.findOneAndUpdate({id: req.params.slug}, { $set: { painLevel: parseInt(painLevel) }}, { new: true }, function (err, s) {
+    console.log(s);
+  });
+
+  delete answeredQuestions.painLevel
+
+  for(key in answeredQuestions){
+    Question.findByIdAndUpdate(key, { $set: { answer: answeredQuestions[key] }}, { new: true }, function (err, q) {
+      console.log(q)
+    });
+  }
+
+  res.send(req.body);
 });
 
 router.get('/logout', function(req,res) {

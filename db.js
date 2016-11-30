@@ -19,6 +19,7 @@ var Question = new mongoose.Schema({
 var Survey = new mongoose.Schema({
   id: String,
   recoveryLevel: Number,
+  painLevel: Number,
   questions: [Question],
   answered: Boolean,
   slug:String,
