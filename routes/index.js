@@ -197,13 +197,15 @@ router.post('/patient/:slug/create-survey', function(req, res){
           id: token,
           questions: allQuestions,
           answered: false,
-        }).save(function(err, obj, count){
+        }).save(function(err, currentSurvey, count){
           if(err) {
             res.send(err);
           } else{
-            console.log(obj);
+            console.log(currentSurvey);
             Patient.findOne({slug: req.params.slug}, function(err, patient, count) {
               if(!err){
+                patient.surveys.push(currentSurvey);
+                patient.save();
                 var redirectURL = '/patient/' + req.params.slug + "/" + "?message=created_survey";
                 res.redirect(redirectURL);
               }else{
