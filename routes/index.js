@@ -157,7 +157,10 @@ router.post('/register-patient', function(req, res) {
 router.get('/patient/:slug', function(req, res) {
   console.log('in : ', req.params.slug);
   Patient.findOne({slug: req.params.slug}, function(err, patient, count) {
-    res.render('patient', {patient:patient, message:req.query.message});
+    var slug = req.params.slug;
+    Survey.find({patientSlug: slug}, function(err, surveys,c){
+      res.render('patient', {patient:patient, message:req.query.message, surveys: surveys});
+    });
   });
 });
 
@@ -175,8 +178,12 @@ router.post('/patient/:slug/create-survey', function(req, res){
   };
   var token = rand()+rand();
   var questions = [];
-  for(var i = 0; i < req.body.myInputs.length; i++){
-    questions.push(req.body.myInputs[i]);
+  if((typeof req.body.myInputs) == 'string'){
+    questions.push(req.body.myInputs);
+  }else{
+    for(var i = 0; i < req.body.myInputs.length; i++){
+      questions.push(req.body.myInputs[i]);
+    }
   }
 
   var array_of_question_objects = []
@@ -184,6 +191,7 @@ router.post('/patient/:slug/create-survey', function(req, res){
     question = {}
     question.surveyId = token;
     question.question = questions[i];
+    question.patientSlug = req.params.slug;
     array_of_question_objects.push(question);
   }
   Question.create(array_of_question_objects, function (err) {
@@ -196,6 +204,7 @@ router.post('/patient/:slug/create-survey', function(req, res){
           id: token,
           questions: allQuestions,
           answered: false,
+          patientSlug: req.params.slug,
         }).save(function(err, currentSurvey, count){
           if(err) {
             res.send(err);
@@ -228,9 +237,9 @@ router.get('/answerSurvey/:slug', function(req, res){
 router.post('/answerSurvey/:slug', function(req, res){
   var answeredQuestions = req.body;
   var painLevel = req.body.painLevel;
-  console.log("the slug is below");
-  console.log(req.params.slug)
-  Survey.findOneAndUpdate({id: req.params.slug}, { $set: { painLevel: parseInt(painLevel) }}, { new: true }, function (err, s) {
+  console.log("pain level is");
+  console.log(painLevel);
+  Survey.findOneAndUpdate({id: req.params.slug}, { $set: { painLevel: parseInt(painLevel),  answered: true}}, { new: true }, function (err, s) {
     console.log(s);
   });
 
@@ -243,6 +252,15 @@ router.post('/answerSurvey/:slug', function(req, res){
   }
 
   res.send(req.body);
+});
+
+router.get('/viewSurvey/:slug', function(req, res){
+  Survey.find({id: req.params.slug}, function(err, survey){
+    Question.find({slug: survey.patientSlug, surveyId: req.params.slug}, function(err, questions){
+      res.render('survey-results', {survey: survey, questions:questions});
+      //TODO DO THE FRONTEND, SURVEY-RESULTS IS EMPTY
+    });
+  });
 });
 
 router.get('/logout', function(req,res) {

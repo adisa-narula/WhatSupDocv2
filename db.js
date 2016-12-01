@@ -14,15 +14,16 @@ var Question = new mongoose.Schema({
   surveyId: String,
   question: String,
   answer: String,
+  patientSlug: String,
 });
 
 var Survey = new mongoose.Schema({
   id: String,
-  recoveryLevel: Number,
   painLevel: Number,
   questions: [Question],
   answered: Boolean,
   slug:String,
+  patientSlug:String,
 });
 
 var Patient = new mongoose.Schema ({
