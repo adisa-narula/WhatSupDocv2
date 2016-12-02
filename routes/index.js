@@ -2,12 +2,15 @@ var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
     mongoose = require('mongoose'),
+    nodemailer = require('nodemailer'),
     User = mongoose.model('User'),
     Doctor = mongoose.model('Doctor'),
     Patient = mongoose.model('Patient'),
     Medication = mongoose.model('Medication');
     Question = mongoose.model('Question');
     Survey = mongoose.model('Survey');
+
+var transporter = nodemailer.createTransport();
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -215,13 +218,19 @@ router.post('/patient/:slug/create-survey', function(req, res){
                 patient.surveys.push(currentSurvey);
                 patient.save();
 
-                //TODO: mail survey
-
-                
+                var emailBody = "Please fill out this survey: http://localhost:3000/answerSurvey/" + token;
+                transporter.sendMail({
+                  from: 'adisan19@gmail.com',
+                  to: 'an1519@nyu.edu',
+                  subject: 'Survey from your doctor',
+                  text: emailBody
+                }, function (err, response) {
+                    console.log(err || response);
+                });
 
                 var redirectURL = '/patient/' + req.params.slug + "/" + "?message=created_survey";
                 res.redirect(redirectURL);
-              }else{
+              } else{
                 res.send('patient not found');
               }
             });
@@ -255,9 +264,9 @@ router.post('/answerSurvey/:slug', function(req, res){
       console.log(q)
     });
   }
-
-  res.send(req.body);
+  res.render('thank-patient');
 });
+
 
 router.get('/viewSurvey/:slug', function(req, res){
   Survey.find({id: req.params.slug}, function(err, survey){
