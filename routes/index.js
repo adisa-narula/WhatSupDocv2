@@ -214,6 +214,11 @@ router.post('/patient/:slug/create-survey', function(req, res){
               if(!err){
                 patient.surveys.push(currentSurvey);
                 patient.save();
+
+                //TODO: mail survey
+
+                
+
                 var redirectURL = '/patient/' + req.params.slug + "/" + "?message=created_survey";
                 res.redirect(redirectURL);
               }else{

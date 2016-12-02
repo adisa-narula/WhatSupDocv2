@@ -21,7 +21,10 @@
   </head>
   <body>
     {{> navbar }}
-    survey results go here
+    <!-- {{survey}} -->
+    {{#each questions}}
+      {{this.question}} {{this.answer}} <br>
+    {{/each}}
   </body>
 
 </html>
