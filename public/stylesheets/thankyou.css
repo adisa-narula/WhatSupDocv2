@@ -1,0 +1,26 @@
+.container{
+	text-align: center;
+	font-size: 19px;
+	color: #3F51B5;
+	margin-top: 20%;
+	width: 50%;
+	margin-left: 25%;
+}
+
+.message-1{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.message-2{
+	padding-bottom: 15px;
+}
+
+hr.styleline{
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #9FA8DA, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #9FA8DA, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #9FA8DA, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #9FA8DA, #f0f0f0);
+}

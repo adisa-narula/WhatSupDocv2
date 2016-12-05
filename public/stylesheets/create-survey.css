@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 #header{
   font-family: 'Raleway', sans-serif;
   text-align: center;
@@ -16,13 +19,12 @@ hr.styleline {
 }
 
 .question-box{
-  font-family: 'Roboto', sans-serif;
   border-style: solid;
   border-width: 30px 20px 30px 20px;
-  border-color: #1abc9c;
+  border-color: #f0f0f0;
   border-radius: 5px;
   height: 200px;
-  box-shadow: 5px 5px 2.5px #888888;
+/*  box-shadow: 2.5px 2.5px 2.5px #888888;*/
   position: relative;
 }
 
@@ -32,17 +34,17 @@ hr.styleline {
   margin-right: auto;
 }
 .question-holder-row{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   height: 66px;
-  font-size: 20px;
-  box-shadow: 1px 1px 1px #888888;
+  font-size: 18px;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px #C5CAE9;
   padding-left: 15px;
   padding-top: 30px;
   border-radius: 2px;
 }
 
 .question-label{
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .question-text-input{
@@ -58,41 +60,60 @@ hr.styleline {
   bottom: 0;
   text-align: center;
   width: 760px;
-  color: white;
-  background-color: #16a085;
+  color: #222222;
+  background-color: #f0f0f0;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .survey-button{
-  font-family: 'Roboto', sans-serif;
   margin-left: 10px;
   padding:10px;
   box-shadow: none;
   font-size: 18px;
   border-radius:5px;
   border: none;
-}
-#add-question-button{
-  background-color:#5C6BC0;
-  color: white;
-  cursor: pointer;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
+#add-question-button{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  background-color: #3F51B5;
+  box-shadow: 1px 1px 1px rgba(80, 80, 80, 0.4);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
 
 #create-survey-button{
-  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
   margin-top: 30px;
   float:right;
-  width: 210px;
-  font-size: 22px;
-  text-align: right;
-  color: white;
-  background: url(/images/mail.png) no-repeat left;
-  background-color: #1abc9c;
-  font-family: 'Raleway', sans-serif;
+  width: 140px;
+  font-size: 15px;
+  text-align: center;
+  color: #000;
+  background-color: #fff;
+  border: 1px #6666ff solid;
+  border-radius: 15px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
 }
+
+
+  #create-survey-button:hover{
+    background-color: #3F51B5;
+    box-shadow: 0px 10px 14px rgba(80, 80, 80, 0.4);
+    color: #fff;
+    border: 1px #eeeeee solid;
+  }
+
 
 .profile-holder{
   margin-top: 40px;

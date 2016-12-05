@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.pain-level{
+  font-family: 'Raleway', sans-serif;
+}
+
 .profile-holder{
   margin-top: 40px;
   width: 100%;
@@ -8,8 +20,8 @@
   width: 300px;
 }
 .demo-card-square.mdl-card {
-  width: 300px;
-  height: 250px;
+  width: 250px;
+  height: 200px;
 }
 .demo-card-square > .mdl-card__title {
   color: #fff;
@@ -21,14 +33,15 @@
 }
 
 .flashSuccess{
-  color: white;
+  color: #3F51B5;
   margin-left: auto;
   margin-right: auto;
-  background-color: #1abc9c;
+  box-shadow: 0px 5px 5px rgba(80, 80, 80, 0.4);
+  background-color: white;
   width: 440px;
   padding: 20px;
   border-radius: 3px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
   text-align: center;
   position: relative;
@@ -38,13 +51,13 @@
   position:absolute;
   top:0;
   right:0;
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
+  margin-right: 5px;
   cursor: pointer;
 }
 
-.painLevel{
-  font-family: 'Raleway', sans-serif;
-  font-size: 30px;
-}
 
 .outerSurveyHolder{
   width: 100%
@@ -59,12 +72,12 @@
   display: inline-block;
 }
 .survey-card{
-  width: 300px;
+  width: 250px;
 }
 
 .survey-title {
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
+/*  font-family: 'Raleway', sans-serif;
+*/  text-align: center;
   color: #1abc9c;
   font-size: 2rem;
 }
@@ -85,7 +98,6 @@ hr.styleline {
 
 #title-welcome {
   padding: 2%;
-  font-family: 'Roboto', sans-serif;
   margin: 0 auto;
   text-align: center;
   width: 20%;
@@ -96,7 +108,6 @@ hr.styleline {
 }
 
 #title-welcome p {
-  font-family: 'Roboto', sans-serif;
   color: #707B7C;
   font-size: 1.4rem;
 }
@@ -110,10 +121,15 @@ hr.styleline {
 }
 
 #patient-name {
+  font-family: 'Raleway', sans-serif;
   display: inline-block;
   margin-right: 3%;
   margin-top: 5%;
   margin-bottom: 10%;
+}
+
+#patient-cond{
+  font-family: 'Raleway', sans-serif;
 }
 
 #add-button {
@@ -129,7 +145,7 @@ hr.styleline {
 }
 
 #surveys {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
   display: inline-block;
   margin-right: 3%;
   font-size: 1.8rem;
