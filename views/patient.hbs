@@ -4,6 +4,9 @@
     <title> Login </title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src = "/javascripts/Chart.bundle.js"></script>
+  <script src = "/javascripts/utils.js"></script>
+
 
 	<!--load font-->
 	<link href='https://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet' type='text/css'>
@@ -29,35 +32,28 @@
         </p>
       </div>
     {{/if}}
-    <!-- <div class="profile-holder">
-      <div class = "profile-card">
-        <div class="demo-card-square mdl-card mdl-shadow--2dp">
-          <div class="mdl-card__title mdl-card--expand" style="background:url('/images/{{patient.gender}}.png') bottom right 2% no-repeat #5C6BC0;">
-            <h2 class="mdl-card__title-text">{{patient.firstName}} {{patient.lastName}}</h2>
-          </div>
-          <div class="mdl-card__supporting-text">
-            Condition: {{patient.condition}}
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href = "/patient/{{patient.slug}}/create-survey">
-              Create Survey
-            </a>
-          </div>
-        </div>
-      </div>
-    </div> -->
+
+
+
     <div id = "main-page">
       <div id = "title-welcome">
         <h4 id="patient-name"> {{patient.firstName}} {{patient.lastName}} </h4>
         <div class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" id="gender-button" style="background:url('/images/{{patient.gender}}_s.png')">
         </div>
         <p id="patient-cond"> {{patient.condition}} </p>
-        <hr class ="styleline">
-        <div id="surveys"> Surveys </div>
-        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" id="add-button" onclick = "window.location.href='/patient/{{patient.slug}}/create-survey'">
-          <i class="material-icons">add</i>
-        </button>
      </div>
+
+     <br>
+     <div style="width:45%; margin: 0 auto; ">
+       <canvas id="canvas"></canvas>
+     </div>
+     <br>
+
+     <hr class ="styleline" style="width:45%; margin: 0 auto"><br><br>
+     <div id="surveys"> Surveys </div>
+     <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" id="add-button" onclick = "window.location.href='/patient/{{patient.slug}}/create-survey'">
+       <i class="material-icons">add</i>
+     </button>
 
     <div class="outerSurveyHolder">
     {{#each surveys}}
@@ -98,11 +94,7 @@
     {{/each}}
     </div>
 
-    <!--
-    TODO for patient profile
-    create create survey button
-    loop through surveys and display results
-    -->
+
   </body>
   <script>
     var flashMessage = document.getElementById('flashMessage');
@@ -111,5 +103,68 @@
         flashMessage.parentNode.removeChild(flashMessage);
       })
     }
+  </script>
+
+  <script>
+
+  var l = String("{{surveyIDs}}");
+  var p = String("{{painLevels}}");
+
+  var labs = l.split(",");
+  var pain = p.split(",");
+
+  labs.pop();
+  pain.pop();
+
+  console.log(labs);
+  console.log(pain);
+
+  var config = {
+      type: 'line',
+      data: {
+          labels: labs,
+          datasets: [{
+              label: "Pain Level",
+              data: pain,
+              backgroundColor: window.chartColors.yellow,
+              borderColor: window.chartColors.yellow,
+              fill: false,
+              pointHoverRadius: 10,
+          }]
+        },
+          options: {
+              responsive: true,
+              legend: {
+                  position: 'bottom',
+              },
+              hover: {
+                  mode: 'index'
+              },
+              scales: {
+                  xAxes: [{
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: 'Survey No.'
+                      }
+                  }],
+                  yAxes: [{
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: 'Pain Level'
+                      }
+                  }]
+              },
+              title: {
+                  display: false,
+                  text: 'Chart.js Line Chart - Different point sizes'
+              }
+          }
+      };
+      window.onload = function() {
+          var ctx = document.getElementById("canvas").getContext("2d");
+          window.myLine = new Chart(ctx, config);
+      };
   </script>
 </html>

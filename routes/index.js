@@ -161,8 +161,29 @@ router.get('/patient/:slug', function(req, res) {
   console.log('in : ', req.params.slug);
   Patient.findOne({slug: req.params.slug}, function(err, patient, count) {
     var slug = req.params.slug;
+
     Survey.find({patientSlug: slug}, function(err, surveys,c){
-      res.render('patient', {patient:patient, message:req.query.message, surveys: surveys});
+
+      var surveyID = "";
+      var painLevel = "";
+      var count = 1;
+
+      surveys.forEach(function(element) {
+        if(element.answered) {
+
+          surveyID += "Survey " + count + ", ";
+          painLevel += element.painLevel + ", ";
+
+          // surveyID.push("Survey " + count);
+          // painLevels.push(element.painLevel);
+          count += 1;
+        }
+      });
+
+      console.log(surveyID);
+      console.log(painLevel);
+
+      res.render('patient', {patient:patient, message:req.query.message, surveys: surveys, surveyIDs: surveyID, painLevels: painLevel});
     });
   });
 });
